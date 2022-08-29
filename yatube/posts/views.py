@@ -1,14 +1,14 @@
-from turtle import title
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
 # Импортируем модель, чтобы обратиться к ней
 from .models import Post, Group
+
 
 # Главная страница
 def index(request):
     # Одна строка вместо тысячи слов на SQL:
     # в переменную posts будет сохранена выборка из 10 объектов модели Post,
-    # отсортированных по полю pub_date по убыванию (от больших значений к меньшим)
+    # отсортированных по полю pub_date по убыванию
+    # (от больших значений к меньшим)
     posts = Post.objects.order_by('-pub_date')[:10]
     title = 'Это главная траница проекта Yatube'
     # В словаре context отправляем информацию в шаблон
@@ -18,10 +18,12 @@ def index(request):
     }
     return render(request, 'posts/index.html', context)
 
+
 # View-функция для страницы сообщества:
 def group_posts(request, slug):
+
     title_group = 'Здесь будет информация о группах проекта Yatube'
-    # Функция get_object_or_404 получает по заданным критериям объект 
+    # Функция get_object_or_404 получает по заданным критериям объект
     # из базы данных или возвращает сообщение об ошибке, если объект не найден.
     # В нашем случае в переменную group будут переданы объекты модели Group,
     # поле slug у которых соответствует значению slug в запросе
@@ -30,7 +32,7 @@ def group_posts(request, slug):
     # Это аналог добавления
     # условия WHERE group_id = {group_id}
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
-    
+
     context = {
         'title_group': title_group,
         'group': group,
