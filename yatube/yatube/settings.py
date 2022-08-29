@@ -27,6 +27,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'd^q#5trk!wt#&q4dr)z4(62xfx^qp__quh93dvq+64#+klxy*@'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -36,7 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'posts.apps.PostsConfig', # Добавленная запись
+    'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
