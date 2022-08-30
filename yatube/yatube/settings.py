@@ -16,7 +16,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv()
-env_path = Path('.')/'.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 SECRET_KEY = os.getenv("SECRET_KEY")
 
