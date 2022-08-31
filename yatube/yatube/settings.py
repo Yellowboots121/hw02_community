@@ -21,6 +21,8 @@ load_dotenv(dotenv_path=env_path)
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 EMPTY_VALUE_FILLER = '-пусто-'
+# кол-во постов на странице
+POSTS_PER_PAGE = 10
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
